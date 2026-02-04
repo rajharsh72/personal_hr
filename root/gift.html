@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>A Gift for You 💐</title>
+  <style>
+    body {
+      margin: 0;
+      background: #ffe6eb;
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 40px;
+    }
+
+    img {
+      width: 250px;
+      margin: 20px 0;
+    }
+
+    .quote {
+      background: white;
+      display: inline-block;
+      padding: 15px 20px;
+      margin: 10px;
+      border-radius: 20px;
+      color: #ff4d6d;
+      font-weight: 600;
+    }
+
+    button {
+      margin-top: 30px;
+      padding: 12px 30px;
+      font-size: 18px;
+      border-radius: 30px;
+      border: none;
+      background: #ff4d6d;
+      color: white;
+      cursor: pointer;
+    }
+
+    .heart {
+    position: fixed;
+    width: 18px;
+    height: 18px;
+    background: #ff4d6d;
+    transform: rotate(45deg);
+    bottom: -20px;
+    animation: floatUp linear infinite;
+    opacity: 0.8;
+    z-index: 0;
+    }
+
+    .heart::before,
+    .heart::after {
+    content: "";
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background: #ff4d6d;
+    border-radius: 50%;
+    }
+
+    .heart::before {
+    top: -9px;
+    left: 0;
+    }
+
+    .heart::after {
+    left: -9px;
+    top: 0;
+    }
+
+    @keyframes floatUp {
+    0% {
+        transform: translateY(0) rotate(45deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-110vh) rotate(45deg);
+        opacity: 0;
+    }
+    }
+  </style>
+</head>
+<script>
+  function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (Math.random() * 3 + 4) + "s";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+      heart.remove();
+    }, 7000);
+  }
+
+  setInterval(createHeart, 300);
+</script>
+<body>
+
+<h1>Here’s a gift for you 💝</h1>
+
+<body>
+
+  <div class="gift-container">
+
+    <!-- Left Quotes -->
+    <div class="quotes left">
+      <div class="quote">You are the best part of my life 💕</div>
+      <div class="quote">I will always love you 🌹</div>
+    </div>
+
+    <!-- Center Image -->
+    <div class="image-wrapper">
+      <img src="https://plus.unsplash.com/premium_photo-1673426711099-c1fab2508cbf?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Rose Bouquet">
+    </div>
+
+    <!-- Right Quotes -->
+    <div class="quotes right">
+      <div class="quote">You are my forever ❤️</div>
+      <div class="quote">Life feels complete with you ✨</div>
+    </div>
+
+  </div>
+
+  <!-- Bottom Button -->
+  <div class="button-wrapper">
+    <button onclick="next()">Click Me 💌</button>
+  </div>
+
+  <!-- Floating Hearts -->
+  <script>
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (Math.random() * 3 + 4) + "s";
+      document.body.appendChild(heart);
+      setTimeout(() => heart.remove(), 7000);
+    }
+    setInterval(createHeart, 300);
+
+  function next() {
+    window.location.href = "note.html";
+  }
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Be My Valentine 💖</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .box {
+      background: white;
+      padding: 40px;
+      border-radius: 25px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+    }
+
+    h1 {
+      color: #ff4d6d;
+    }
+
+    button {
+      margin: 20px;
+      padding: 12px 30px;
+      font-size: 18px;
+      border-radius: 30px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .yes {
+      background: #ff4d6d;
+      color: white;
+    }
+
+    .no {
+      background: #ccc;
+    }
+    .heart {
+    position: fixed;
+    width: 18px;
+    height: 18px;
+    background: #ff4d6d;
+    transform: rotate(45deg);
+    bottom: -20px;
+    animation: floatUp linear infinite;
+    opacity: 0.8;
+    z-index: 0;
+    }
+
+    .heart::before,
+    .heart::after {
+    content: "";
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background: #ff4d6d;
+    border-radius: 50%;
+    }
+
+    .heart::before {
+    top: -9px;
+    left: 0;
+    }
+
+    .heart::after {
+    left: -9px;
+    top: 0;
+    }
+
+    @keyframes floatUp {
+    0% {
+        transform: translateY(0) rotate(45deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-110vh) rotate(45deg);
+        opacity: 0;
+    }
+    }
+
+  </style>
+</head>
+
+<script>
+  function createHeart() {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (Math.random() * 3 + 4) + "s";
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+      heart.remove();
+    }, 7000);
+  }
+
+  setInterval(createHeart, 300);
+</script>
+<body>
+
+<div class="box">
+  <h1>Will you be my Valentine? 💘</h1>
+  <button class="yes" onclick="yes()">Yes 💖</button>
+  <button class="no" onclick="no()">No 🙈</button>
+</div>
+
+<script>
+  let noCount = 0;
+
+  function yes() {
+    window.location.href = "gift.html";
+  }
+
+  function no() {
+    const messages = [
+      "Are you sure? 🥺",
+      "Think again… 💔",
+      "Last chance 😶‍🌫️",
+      "Wrong answer 😌 You can try once more"
+    ];
+
+    alert(messages[noCount]);
+    noCount++;
+
+    if (noCount === messages.length) {
+      noCount = 0;
+      location.reload();
+    }
+  }
+</script>
+
+</body>
+</html>
